@@ -17,7 +17,7 @@ jobs:
     env:
       HOST: 210.223.37.59
       USERNAME: tsupport
-      PASSWORD: VMFfotvha5(Roqkf
+      PASSWORD: "VMFfotvha5(Roqkf"
 
     steps:
 
