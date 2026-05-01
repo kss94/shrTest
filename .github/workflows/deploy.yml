@@ -20,6 +20,15 @@ jobs:
       PASSWORD: VMFfotvha5(Roqkf
 
     steps:
+
+    - name: Restart service via SSH
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ env.HOST }}
+        username: ${{ env.USERNAME }}
+        password: ${{ env.PASSWORD }}
+        script: whoami
+
     - name: Checkout
       uses: actions/checkout@v6
 
@@ -44,15 +53,6 @@ jobs:
 
     - name: Publish
       run: dotnet publish shrTest.slnx -c Release -o ./publish
-
-    - name: Restart service via SSH
-      uses: appleboy/ssh-action@v1
-      with:
-        host: ${{ env.HOST }}
-        username: ${{ env.USERNAME }}
-        password: ${{ env.PASSWORD }}
-        script: |
-          powershell Stop-Website -Name "tableguide_embrain_com_dev"
 
     - name: Deploy via SCP
       uses: appleboy/scp-action@v1
