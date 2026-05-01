@@ -21,8 +21,8 @@ jobs:
 
     steps:
 
-    - name: where
-      run: where.exe sshpass
+    - name: install sshpass
+      run: winget install xhcoding.sshpass-win32
 
     - name: ssh
       run: |
