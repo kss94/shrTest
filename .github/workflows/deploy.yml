@@ -22,6 +22,9 @@ jobs:
 
     steps:
 
+    - name: whoami
+      run: whoami
+
     - name: ssh
       run: |
         & "C:\sshpass.exe" -p "${{ env.PASSWORD }}" -k ssh ${{ env.USERNAME }}@${{ env.HOST }} "whoami"
