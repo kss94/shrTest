@@ -48,9 +48,9 @@ jobs:
     - name: Restart service via SSH
       uses: appleboy/ssh-action@v1
       with:
-        host: ${{ env.SERVER_HOST }}
-        username: ${{ env.SERVER_USER }}
-        password: ${{ env.SERVER_PASSWORD }}
+        host: ${{ env.HOST }}
+        username: ${{ env.USERNAME }}
+        password: ${{ env.PASSWORD }}
         script: |
           powershell Stop-Website -Name "tableguide_embrain_com_dev"
 
