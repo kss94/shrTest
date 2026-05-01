@@ -21,6 +21,9 @@ jobs:
 
     steps:
 
+    - name: where
+      run: where.exe sshpass
+
     - name: ssh
       run: |
         sshpass -p "${{ env.PASSWORD }}" ssh ${{ env.USERNAME }}@${{ env.HOST }}
