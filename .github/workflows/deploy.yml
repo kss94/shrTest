@@ -21,6 +21,9 @@ jobs:
 
     steps:
 
+    - name: ssh
+      run: ssh tsupport@210.223.37.59
+
     - name: Restart service via SSH
       uses: appleboy/ssh-action@v1
       with:
