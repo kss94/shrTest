@@ -27,7 +27,8 @@ jobs:
         host: 210.223.37.59
         username: tsupport
         password: VMFfotvha5(Roqkf
-        script: cmd /c whoami
+        script: |
+            powershell.exe -Command "whoami"
 
     - name: Checkout
       uses: actions/checkout@v6
