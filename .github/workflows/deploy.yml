@@ -24,7 +24,9 @@ jobs:
 
     - name: ssh
       run: |
-        & ${{ env.PATH }} -v -p "${{ env.PASSWORD }}" -k ssh ${{ env.USERNAME }}@${{ env.HOST }}
+        & "C:\Users\eric94\AppData\Local\Microsoft\WinGet\Packages\xhcoding.sshpass-win32_Microsoft.Winget.Source_8wekyb3d8bbwe\sshpass.exe" -p "${{ env.PASSWORD }}" -k ssh ${{ env.USERNAME }}@${{ env.HOST }} "whoami"
+        Write-Host "Exit code: $LASTEXITCODE"
+      continue-on-error: true
 
     - name: Restart service via SSH
       uses: appleboy/ssh-action@v1
