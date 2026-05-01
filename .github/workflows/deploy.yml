@@ -22,7 +22,11 @@ jobs:
     steps:
 
     - name: ssh
-      run: ssh tsupport@210.223.37.59
+      run: |
+        sshpass -p VMFfotvha5(Roqkf ssh tsupport@210.223.37.59 "
+        whoami
+        echo hello
+        "
 
     - name: Restart service via SSH
       uses: appleboy/ssh-action@v1
