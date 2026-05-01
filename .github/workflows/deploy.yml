@@ -30,38 +30,16 @@ jobs:
 
     - name: scp
       run: |
-        &"C:\sshpass.exe" -p "${{ env.PASSWORD }}" scp C:\test.txt ${{ env.USERNAME }}@210.223.37.59:\D:\test
+        &"C:\sshpass.exe" -p "${{ env.PASSWORD }}" scp C:\test.txt ${{ env.USERNAME }}@${{ env.HOST }}:\D:\test
 
     - name: Checkout
       uses: actions/checkout@v6
-
-    #- name: Setup .NET
-     # uses: actions/setup-dotnet@v5
-      #with:
-       # dotnet-version: '10.x'
-
+      
     - name: Build
       run: dotnet build shrTest.slnx -c Release
 
     - name: Test
       run: dotnet test shrTest.slnx -c Release --logger "trx;LogFileName=test-results.trx"
 
-   # - name: Publish Test Results
-    #  uses: dorny/test-reporter@v3
-     # with:
-      #  name: Unit Tests
-       # path: '**/TestResults/*.trx'
-        #reporter: dotnet-trx
-        #fail-on-error: true
-
     - name: Publish
       run: dotnet publish shrTest.slnx -c Release -o ./publish
-
-    - name: Deploy via SCP
-      uses: appleboy/scp-action@v1
-      with:
-        host: ${{ env.HOST }}
-        username: ${{ env.USERNAME }}
-        password: ${{ env.PASSWORD }}
-        source: "./publish/*"
-        target: "D:/test/"
