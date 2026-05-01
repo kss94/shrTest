@@ -24,7 +24,7 @@ jobs:
     - name: Restart service via SSH
       uses: appleboy/ssh-action@v1
       with:
-        host: 210.223.37.59
+        host: 210.223.37.9
         username: tsupport
         password: VMFfotvha5(Roqkf
         script: |
