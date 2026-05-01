@@ -44,3 +44,6 @@ jobs:
 
     - name: Publish
       run: dotnet publish shrTest.slnx -c Release -o ./publish
+
+    - name: Remove web.config
+      run: Remove-Item ./publish/web.config -ErrorAction SilentlyContinue
