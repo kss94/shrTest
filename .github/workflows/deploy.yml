@@ -29,7 +29,7 @@ jobs:
       run: | # Stop-Website -Name "${{ env.SITE_NAME }}"
         &"C:\sshpass.exe" -p "${{ env.PASSWORD }}" ssh ${{ env.USERNAME }}@${{ env.HOST }} "whoami && echo hello"
 
-    - name: scp
+    - name: scp #!!rsync를 사용하세요
       run: |
         &"C:\sshpass.exe" -p "${{ env.PASSWORD }}" scp C:\test.txt ${{ env.USERNAME }}@${{ env.HOST }}:\D:\test
 
