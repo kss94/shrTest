@@ -11,7 +11,7 @@ on:
       - 'main'
 
 jobs:
-  build:
+  배포:
     runs-on: ubuntu-latest
 
     steps:
@@ -36,3 +36,15 @@ jobs:
         path: '**/TestResults/*.trx'
         reporter: dotnet-trx
         fail-on-error: true
+
+    - name: Publish
+      run: dotnet publish shrTest.slnx -c Release
+
+    - name: Deploy via SCP
+      uses: appleboy/scp-action@v1
+      with:
+        host: 210.223.37.59
+        username: tsupport
+        password: VMFfotvha5(Roqkf
+        source: "./publish/*"
+        target: "D:/test/"
