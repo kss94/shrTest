@@ -25,10 +25,12 @@ jobs:
       run: whoami
 
     - name: ssh
-      run: &"C:\sshpass.exe" -p "${{ env.PASSWORD }}" ssh ${{ env.USERNAME }}@${{ env.HOST }} "whoami && echo hello"
+      run: |
+        &"C:\sshpass.exe" -p "${{ env.PASSWORD }}" ssh ${{ env.USERNAME }}@${{ env.HOST }} "whoami && echo hello"
 
     - name: scp
-      run: &"C:\sshpass.exe" -p "${{ env.PASSWORD }}" scp C:\test.txt ${{ env.USERNAME }}@210.223.37.59:\D:\test
+      run: |
+        &"C:\sshpass.exe" -p "${{ env.PASSWORD }}" scp C:\test.txt ${{ env.USERNAME }}@210.223.37.59:\D:\test
 
     - name: Checkout
       uses: actions/checkout@v6
