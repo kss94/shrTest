@@ -43,7 +43,7 @@ jobs:
         #fail-on-error: true
 
     - name: Publish
-      run: dotnet publish shrTest.slnx -c Release
+      run: dotnet publish shrTest.slnx -c Release -o ./publish
 
     - name: Deploy via SCP
       uses: appleboy/scp-action@v1
