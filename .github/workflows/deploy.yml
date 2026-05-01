@@ -25,8 +25,9 @@ jobs:
       uses: appleboy/ssh-action@v1
       with:
         host: 210.223.37.59
+        port: 22
         username: tsupport
-        password: "VMFfotvha5(Roqkf"
+        password: VMFfotvha5(Roqkf
         script: |
             powershell.exe -Command "whoami"
 
