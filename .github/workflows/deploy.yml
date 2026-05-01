@@ -17,13 +17,13 @@ jobs:
     env:
       HOST: 210.223.37.59
       USERNAME: tsupport
-      PASSWORD: "VMFfotvha5(Roqkf"
+      PASSWORD: VMFfotvha5(Roqkf
 
     steps:
 
     - name: ssh
       run: |
-        sshpass -p ${{ env.PASSWORD }} ssh ${{ env.USERNAME }}@${{ env.HOST }} "
+        sshpass -p "${{ env.PASSWORD }}" ssh ${{ env.USERNAME }}@${{ env.HOST }} "
         whoami
         echo hello
         "
