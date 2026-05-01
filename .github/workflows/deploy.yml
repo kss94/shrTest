@@ -26,10 +26,7 @@ jobs:
 
     - name: ssh
       run: |
-        & "C:\sshpass.exe" -p "${{ env.PASSWORD }}" ssh ${{ env.USERNAME }}@${{ env.HOST }} "
-        whoami
-        whoami
-        "
+        & "C:\sshpass.exe" -p "${{ env.PASSWORD }}" ssh ${{ env.USERNAME }}@${{ env.HOST }} "whoami; echo hello"
 
     - name: Restart service via SSH
       uses: appleboy/ssh-action@v1
