@@ -21,10 +21,10 @@ jobs:
       PATH: C:\Users\eric94\AppData\Local\Microsoft\WinGet\Packages\xhcoding.sshpass-win32_Microsoft.Winget.Source_8wekyb3d8bbwe\sshpass.exe
 
     steps:
-    
+
     - name: ssh
       run: |
-        ${{ env.PATH }} -p "${{ env.PASSWORD }}" ssh ${{ env.USERNAME }}@${{ env.HOST }}
+        & ${{ env.PATH }} -p -k "${{ env.PASSWORD }}" ssh ${{ env.USERNAME }}@${{ env.HOST }}
 
     - name: Restart service via SSH
       uses: appleboy/ssh-action@v1
