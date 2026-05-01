@@ -23,7 +23,7 @@ jobs:
 
     - name: ssh
       run: |
-        sshpass -p VMFfotvha5(Roqkf ssh tsupport@210.223.37.59 "
+        sshpass -p ${{ env.PASSWORD }} ssh ${{ env.USERNAME }}@${{ env.HOST }} "
         whoami
         echo hello
         "
