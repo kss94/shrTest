@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "shrTest": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
