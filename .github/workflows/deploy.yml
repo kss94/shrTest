@@ -18,15 +18,13 @@ jobs:
       HOST: 210.223.37.59
       USERNAME: tsupport
       PASSWORD: VMFfotvha5(Roqkf
+      PATH: C:\Users\eric94\AppData\Local\Microsoft\WinGet\Packages\xhcoding.sshpass-win32_Microsoft.Winget.Source_8wekyb3d8bbwe\sshpass.exe
 
     steps:
-
-    - name: install sshpass
-      run: winget install xhcoding.sshpass-win32
-
+    
     - name: ssh
       run: |
-        sshpass -p "${{ env.PASSWORD }}" ssh ${{ env.USERNAME }}@${{ env.HOST }}
+        ${{ env.PATH }} -p "${{ env.PASSWORD }}" ssh ${{ env.USERNAME }}@${{ env.HOST }}
 
     - name: Restart service via SSH
       uses: appleboy/ssh-action@v1
