@@ -25,18 +25,10 @@ jobs:
       run: whoami
 
     - name: ssh
-      run: |
-        & "C:\sshpass.exe" -p "${{ env.PASSWORD }}" ssh ${{ env.USERNAME }}@${{ env.HOST }} "whoami && echo hello"
+      run: &"C:\sshpass.exe" -p "${{ env.PASSWORD }}" ssh ${{ env.USERNAME }}@${{ env.HOST }} "whoami && echo hello"
 
-    - name: Restart service via SSH
-      uses: appleboy/ssh-action@v1
-      with:
-        host: 210.223.37.59
-        port: 22
-        username: tsupport
-        password: VMFfotvha5(Roqkf
-        script: |
-            powershell.exe -Command "whoami"
+    - name: scp
+      run: &"C:\sshpass.exe" -p "${{ env.PASSWORD }}" scp C:\test.txt ${{ env.USERNAME }}@210.223.37.59:\D:\test
 
     - name: Checkout
       uses: actions/checkout@v6
