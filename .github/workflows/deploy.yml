@@ -24,9 +24,9 @@ jobs:
     - name: Restart service via SSH
       uses: appleboy/ssh-action@v1
       with:
-        host: ${{ env.HOST }}
-        username: ${{ env.USERNAME }}
-        password: ${{ env.PASSWORD }}
+        host: 210.223.37.59
+        username: tsupport
+        password: VMFfotvha5(Roqkf
         script: whoami
 
     - name: Checkout
